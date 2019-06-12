@@ -1,0 +1,152 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* sidebar */
+
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    overflow-y: hidden;
+    width: 50px;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.9;
+    border: 0.5px solid black;
+    transition: width 0.2s ease;
+    position: fixed;
+    border-right: 5px solid #ddd;
+}
+
+#sidebar-wrapper span {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding-left: 40px;
+    padding-right: 0px;
+    transition: padding 0.2s ease;
+}
+
+/* change the width of the sidebar to display */
+
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 250px;
+    transition: width 0.2s ease;
+    position: fixed;
+}
+
+#wrapper.menuDisplayed #sidebar-wrapper span {
+    display: initial;
+}
+
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 244.5px;
+}
+
+#wrapper.menuDisplayed #sidebar-wrapper .sidebar-nav .sidebar-nav li {
+    text-indent: 10px;
+}
+
+/* sidebar styling */
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 7px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-nav li a:hover {
+    position: auto;
+    transition: position 0.25s ease;
+    animation: shake 0.5s;
+    animation-iteration-count: finite;
+    
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+#tabula {
+    max-height: 20vh;
+    overflow: scroll;
+}
+
+
+
+.container {
+    display: inherit;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 15px;
+    height: 2px;
+    background-color: #ddd;
+    margin: 6px 3px;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}

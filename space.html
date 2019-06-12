@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tasks</title>
+    <link id="icon" rel="icon" type="image" href="img/ts.jpg" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="css/custom.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+
+<body onload=" trans();">
+    <div id="wrapper">
+
+        <!-- sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href id="menu-toggle">
+                        <i id="target" class="fa fa-bars"></i>
+                    </a>
+                </li>
+
+                <!-- <li>
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                </li> -->
+                <li>
+
+
+                    <a href="#">
+                        <i id="target" class="fa fa-user-o"></i>
+                        <span>Account</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i id="target" class="fa fa-gears"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Home.html">
+                        <i id="target" class="fa fa-sign-out"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+                <hr>
+            </ul>
+        </div>
+
+        <!-- page content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="jumbotron jumbotron-fluid" style="background-image: url('img/goon.jpg')">
+                            <div class="container">
+
+                                <h1 class="display-3"> My Day</h1>
+                                <h3 class="text-dark font-weight-bold" id="demo"></h3>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="bg-primary">Add Task
+                            <a href class="btn btn-primary btn-lg " onclick="stock();" id="menu-toggle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </h2>
+                        <form>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-4">
+                                    <label for="item">New Task</label>
+                                    <input type="Name" required id="item" class="form-control" placeholder="New Task" required autofocus style="background-color: transparent;">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="duedate" class="sr-only-focusable">Due Date</label>
+                                    <input type="date" id="duedate" class="form-control" required autofocus style="background-color: transparent;">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="postdate" class="sr-only-focusable"> Post Date </label>
+                                    <input type="date" id="postdate" class="form-control" required autofocus style="background-color: transparent;">
+
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table table-striped table-borderless table-hover" id="tabula">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Item</th>
+                                    <th scope="col">Due Date</th>
+                                    <th scope="col">Post Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody> -->
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    <!-- menu toggle sript -->
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script1.js"></script>
+    <script type="text/javascript" src="js/script2.js"></script>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d;
+        $(document).ready(function () {
+            $('#menu-toggle').click(function (e) {
+                e.preventDefault();
+                $('#wrapper').toggleClass("menuDisplayed");
+            });
+            $('#tabula thead').on('change', '.gogomi', function () {
+                $(this).parent().prev().html('completed');
+                window.alert("Your Task has been completed");
+
+            });
+
+            $(document).on('click', '.delete', function () {
+                var row = $(this).closest('tr');
+                var index = $("#tabula thead").children().index(row);
+                oTable.row(row).remove().draw();
+                dataSort.splice(index, 1);
+                localStorage.setItem('dataSet', JSON.stringify(ttt));
+                
+            });
+            // $('#tabula thead').on('change', '.gogomi', function () {
+            //     $(this).parent().prev().html('pending');
+            //     window.alert("Your Task is pending");
+
+            // });
+
+        })
+        // $(‘#document).hover(
+        //     function () {
+        //         $(this).toggleClass(‘animated shake’);
+        //         window.alert('why?');
+
+        //     });
+        $(document).ready(function () {
+            $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
+                $(this).toggleClass('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
