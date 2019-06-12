@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-color: white;
 }
@@ -347,4 +348,12 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+=======
+.dvsn{
+    height:700px;
+    
+}
+main{
+    margin-bottom: 0px;
+>>>>>>> 2cc9c88e8be0db3e9f6cf279aa19a1663a97b2f9
 }
